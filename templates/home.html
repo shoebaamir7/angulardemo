@@ -1,0 +1,72 @@
+<div class="container" style="padding-top: 50px;">
+    <div class="col-md-8 col-md-offset-2">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Product</button>
+        <h2 class="label label-info pull-right">Hello {{username}}</h2>
+        <h1>All Products</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Rate</th>
+                    <th>Quality</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in products">
+                    <td>{{$index + 1}}</td>
+                    <td>{{x.productname}}</td>
+                    <td>{{x.productrate}}</td>
+                    <td><span  class="btn btn-info" ng-click="delete($index)">Delete</span></td>
+                </tr>
+                <tr ng-if="checkdata" class="text-center">
+                    <td colspan="4">No Data Available</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Product</h4>
+            </div>
+            <div class="modal-body">
+                <form name="modalForm" ng-submit="addProduct()">
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <span class="formerror" ng-show="modalForm.productname.$dirty">
+                            <span ng-show="modalForm.productname.$error.required">Product name is required.</span>
+                        </span>
+                        <input type="text" class="form-control" name="productname" placeholder="Product name" ng-model="productname" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Product Rate</label>
+                        <span class="formerror" ng-show="modalForm.productrate.$dirty">
+                            <span ng-show="modalForm.productrate.$error.required">Product rate is required.</span>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Product Rate" name="productrate" ng-model="productrate"  required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Product Quality</label>
+                        <span class="formerror" ng-show="modalForm.quality.$dirty">
+                            <span ng-show="modalForm.quality.$error.required">Product quality is required.</span>
+                        </span>
+                        <select class="form-control" name="quality" ng-model="quality"  required="required">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <input type="submit" class="btn btn-default"  value="Add Product" ng-disabled="modalForm.$invalid">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>

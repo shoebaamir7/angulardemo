@@ -1,0 +1,26 @@
+{
+  "name": "angulardemo",
+  "version": "1.0.0",
+  "description": "Login Authentication and Add / Delete Products.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoebaamir7/angulardemo.git"
+  },
+  "keywords": [
+    "login",
+    "angularjs"
+  ],
+  "author": "Aamir Shoeb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shoebaamir7/angulardemo/issues"
+  },
+  "homepage": "https://github.com/shoebaamir7/angulardemo#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  }
+}

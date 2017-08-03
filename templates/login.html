@@ -1,0 +1,23 @@
+<div class="container col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+    <h2>Login</h2>
+    <form name="myForm" ng-submit="checkValidUser()">
+        <div class="form-group">
+            <label for="email">Email: </label>
+            <span class="formerror" ng-show="myForm.username.$dirty && myForm.username.$invalid">
+                <span ng-show="myForm.username.$error.required">Email is required.</span>
+                <span ng-show="myForm.username.$error.email">Invalid email address.</span>
+            </span>
+            <span class="formerror">{{invalidlogin}}</span>
+            <input type="email" class="form-control" id="username" placeholder="Enter username" name="username" ng-model="username" required="required">
+        </div>
+        <div class="form-group">
+            <span class="formerror" ng-show="myForm.password.$dirty && myForm.password.$invalid">
+                <span ng-show="myForm.password.$error.required">Password is required.</span>
+                <span ng-show="myForm.password.$error.pattern">Password should contain one uppercase letter.</span>
+            </span>
+            <label for="pwd">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" ng-model="password" ng-pattern="/^(?=.*?[A-Z])[A-Za-z0-9]{1,}$/" required="required">
+        </div>
+        <button type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid">Submit</button>
+    </form>
+</div>
